@@ -16,7 +16,7 @@ public class CalculationStatistics {
 
     private void setHttpConnection() {
         try {
-            socket = new Socket("localhost", 8086);
+            socket = new Socket("localhost", 8080);
             socket.setKeepAlive(true);
 
             writer = new PrintWriter(socket.getOutputStream(), true);
@@ -58,11 +58,11 @@ public class CalculationStatistics {
     }
 
     private void sendRequest() {
-        String jsonInputString = "{\"currency\":\"string\",\"platformAccountId\":0,\"totalBet\":0}\r\n\r";
-        String path = "/mq/approveBet";
+        String jsonInputString = "{\"property1\":\"string\",\"property2\":0,\"property3\":0}\r\n\r";
+        String path = "/rest/postRequest";
 
         writer.println("POST " + path + " HTTP/1.1\r\n" +
-                "Host: 192.168.0.104:8086\r\n" +
+                "Host: localhost:8080\r\n" +
                 "Cache-Control: no-cache\r\n" +
                 "Connection: Keep-Alive\r\n" +
                 "Content-Type: application/json;charset=UTF-8\r\n" +
